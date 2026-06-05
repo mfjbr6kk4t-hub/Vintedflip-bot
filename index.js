@@ -1,15 +1,15 @@
 const https=require("https");
 const http=require("http");
-const W=process.env.DISCORD_WEBHOOK;
-if(!W){console.error("NO WEBHOOK");process.exit(1);}
-console.log("Bot starting");
-http.createServer((q,r)=>r.end("OK")).listen(process.env.PORT||3000);
-function ping(){
-const b=JSON.stringify({content:"✅ VintedFlip bot is alive!"});
+const W="PASTE_YOUR_WEBHOOK_URL_HERE";
+console.log("starting");
+http.createServer((q,r)=>r.end("ok")).listen(process.env.PORT||3000);
+function send(){
+const b=JSON.stringify({content:"🔔 VintedFlip bot is live!"});
 const u=new URL(W);
-const r=https.request({hostname:u.hostname,path:u.pathname+u.search,method:"POST",headers:{"Content-Type":"application/json","Content-Length":Buffer.byteLength(b)}},(x)=>{x.on("data",()=>{});x.on("end",()=>console.log("pinged"));});
-r.on("error",e=>console.error(e));
+const o={hostname:u.hostname,path:u.pathname+u.search,method:"POST",headers:{"Content-Type":"application/json","Content-Length":Buffer.byteLength(b)}};
+const r=https.request(o,res=>{res.on("data",()=>{});res.on("end",()=>console.log("sent!"));});
+r.on("error",e=>console.error(e.message));
 r.write(b);r.end();
 }
-ping();
-setInterval(ping,30000);
+send();
+setInterval(send,30000);
