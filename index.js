@@ -1,12 +1,8 @@
 const https = require("https");
-cat > /home/claude/vinted-final/index.js << 'ENDOFFILE'
-const https = require("https");
 const http = require("http");
-
 const WEBHOOK = process.env.DISCORD_WEBHOOK;
 if (!WEBHOOK) { console.error("ERROR: DISCORD_WEBHOOK not set!"); process.exit(1); }
 console.log("✅ VintedFlip Bot v4 starting...");
-
 // Every watch we want to monitor - wide net, lower thresholds for more alerts
 const WATCHES = [
   // Casio - very high volume
