@@ -1,6 +1,6 @@
 const https=require("https");
 const http=require("http");
-const W="PASTE_YOUR_WEBHOOK_URL_HERE";
+const W="https://discord.com/api/webhooks/1512415420089372773/EkoBMX90Vox70mKnQeDQFrXy47xaNF8bUDvDvaojmIZ_vP8HfHGa7F5Le9aSy2G09RGv";
 console.log("starting");
 http.createServer((q,r)=>r.end("ok")).listen(process.env.PORT||3000);
 function send(){
