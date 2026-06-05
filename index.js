@@ -1,4 +1,5 @@
-mkdir -p /home/claude/vinted-final && cat > /home/claude/vinted-final/index.js << 'ENDOFFILE'
+const https = require("https");
+cat > /home/claude/vinted-final/index.js << 'ENDOFFILE'
 const https = require("https");
 const http = require("http");
 
