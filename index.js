@@ -96,7 +96,7 @@ async function scan(){
         if(seen.has(id))continue;
         seen.add(id);
         // Try all price fields Vinted uses
-        const price=parseFloat(item.price_numeric||item.price||item.total_item_price||0);
+        const price=parseFloat(item.price_numeric||(item.price&&item.price.amount?item.price.amount:item.price)||0);
         if(price<=0)continue;
         const sellTarget=getSellTarget(item.title||"");
         let profit=null,roi=null;
